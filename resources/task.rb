@@ -22,6 +22,8 @@
 # and not very useful
 actions :create, :delete, :run
 
+default_action :create
+
 attribute :name, :kind_of => String, :name_attribute => true
 attribute :command, :kind_of => String, :required => true
 attribute :cwd, :kind_of => String
@@ -40,6 +42,7 @@ attribute :frequency, :equal_to => [:minute,
 
 attr_accessor :exists, :status
 
+# Covers 0.10.8 and earlier
 def initialize(name, run_context=nil)
   super
   @action = :create

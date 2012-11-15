@@ -22,8 +22,11 @@ include Windows::Helper
 
 actions :install, :remove
 
+default_action :install
+
 attribute :feature_name, :kind_of => String, :name_attribute => true
 
+# Covers 0.10.8 and earlier
 def initialize(name, run_context=nil)
   super
   @action = :install

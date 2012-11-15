@@ -20,9 +20,12 @@
 
 actions :request, :cancel
 
+default_action :request
+
 attribute :timeout, :kind_of => Integer, :default => 60, :name_attribute => true
 attribute :reason, :kind_of => String, :default => ''
 
+# Covers 0.10.8 and earlier
 def initialize(name,run_context=nil)
   super
   @action = :request

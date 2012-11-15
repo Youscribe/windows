@@ -22,10 +22,13 @@
 
 actions :create, :modify, :force_modify, :remove
 
+default_action :modify
+
 attribute :key_name, :kind_of => String, :name_attribute => true
 attribute :values, :kind_of => Hash
 attribute :type, :kind_of => Symbol, :default => nil, :equal_to => [:binary, :string, :multi_string, :expand_string, :dword, :dword_big_endian, :qword]
 
+# Covers 0.10.8 and earlier
 def initialize(name, run_context=nil)
   super
   @action = :modify

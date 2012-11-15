@@ -22,10 +22,13 @@
 
 actions :unzip, :zip
 
+default_action :unzip
+
 attribute :path, :kind_of => String, :name_attribute => true
 attribute :source, :kind_of => String
 attribute :overwrite, :kind_of => [ TrueClass, FalseClass ], :default => false
 
+# Covers 0.10.8 and earlier
 def initialize(name, run_context=nil)
   super
   @action = :unzip

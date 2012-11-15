@@ -18,12 +18,15 @@
 # limitations under the License.
 #
 
+actions :create, :remove
+
+default_action :create
+
+# Covers 0.10.8 and earlier
 def initialize(name,run_context=nil)
   super
   @action = :create
 end
-
-actions :create, :remove
 
 attribute :program, :kind_of => String
 attribute :name, :kind_of => String, :name_attribute => true

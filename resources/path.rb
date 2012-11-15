@@ -18,11 +18,14 @@
 # limitations under the License.
 #
 
+actions :add, :remove
+
+default_action :add
+
+attribute :path, :kind_of => String, :name_attribute => true
+
+# Covers 0.10.8 and earlier
 def initialize(name,run_context=nil)
   super
   @action = :add
 end
-
-actions :add, :remove
-
-attribute :path, :kind_of => String, :name_attribute => true

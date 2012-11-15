@@ -20,6 +20,8 @@
 
 actions :run
 
+default_action :run
+
 attribute :command, :kind_of => String, :name_attribute => true
 attribute :cwd, :kind_of => String, :default => nil
 attribute :code, :kind_of => String, :default => nil
@@ -29,6 +31,7 @@ attribute :creates, :kind_of => [ String ], :default => nil
 attribute :flags, :kind_of => [ String ], :default => nil
 attribute :returns, :kind_of => [Integer, Array], :default => 0
 
+# Covers 0.10.8 and earlier
 def initialize(name, run_context=nil)
   super
   @action = :run
