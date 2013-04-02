@@ -163,7 +163,8 @@ end
 def unattended_installation_flags
   case installer_type
   when :msi
-    "/qb /i"
+    # this is no-ui
+    "/qn /i"
   when :installshield
     "/s /sms"
   when :nsis
